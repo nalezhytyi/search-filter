@@ -3,13 +3,13 @@ import './SearchBox.style.css'
 
 const SearchBox = props => {
     return (
-        <div>
+        <>
             <input
                 className='search'
                 type='search'
-                placeholder='search monsters'
+                placeholder='search kittens'
                 onChange={props.handleChange} />
-        </div>
+        </>
     )
 }
 

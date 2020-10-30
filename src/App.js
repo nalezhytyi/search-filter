@@ -5,14 +5,14 @@ import SearchBox from './components/SearchBox/SearchBox';
 
 class App extends React.Component {
     state = {
-        monsters: [],
+        persons: [],
         searchField: ''
     }
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
-            .then(users => this.setState({ monsters: users }))
+            .then(users => this.setState({ persons: users }))
     }
 
     handleSearch = (e) => {
@@ -20,15 +20,15 @@ class App extends React.Component {
     }
 
     render() {
-        const { monsters, searchField } = this.state;
-        const filteredMonster = monsters.filter(monster =>
-            monster.name.toLowerCase().includes(searchField.toLowerCase())
+        const { persons, searchField } = this.state;
+        const filteredPerson = persons.filter(person =>
+            person.name.toLowerCase().includes(searchField.toLowerCase())
         )
         return (
             <div className="App">
-                <h1>Monsters Search</h1>
+                <h1>Kittens Search</h1>
                 <SearchBox handleChange={this.handleSearch} />
-                <CardList monsters={filteredMonster} />
+                <CardList persons={filteredPerson} />
             </div>
         );
     }
